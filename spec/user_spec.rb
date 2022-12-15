@@ -3,7 +3,8 @@ require 'rails_helper'
 describe User, type: :model do
   context 'test users' do
     before :each do
-      @user = User.create(name: 'william', photo: 'https://github.com/kidde60', bio: 'web developer')    end
+      @user = User.create(name: 'william', photo: 'https://github.com/kidde60', bio: 'web developer')
+    end
 
     it 'should have the correct name' do
       expect(@user.name).to eql 'william'
