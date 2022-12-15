@@ -59,7 +59,7 @@ To run the project, execute the following command:
 
 - GitHub: [George William Kidde](https://github.com/kidde60)
 - Twitter: [@KGWilliam60](https://twitter.com/KGWilliam60)
-- LinkedIn: [George William Kidde](https://www.linkedin.com/in/kidde-george-william/)
+- LinkedIn: [George William Kidde](https://www.linkedin.com/in/George-William-Kidde/)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
@@ -69,7 +69,7 @@ To run the project, execute the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page.](https://github.com/shyusu4/Blog-App/issues)
+Feel free to check the [issues page.](https://github.com/kidde60/blog-app/issues)
 
 ## ⭐️ Show your support <a name="support"></a>
 
