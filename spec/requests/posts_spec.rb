@@ -6,17 +6,17 @@ RSpec.describe 'Posts', type: :request do
       get '/users/:id/posts'
       expect(response).to have_http_status(:ok)
     end
-    it 'should pass with status 200' do
+    it 'passes with status 200' do
       get '/users/120/posts'
       expect(response.status).to eql(200)
     end
 
-    it 'should render correct template' do
+    it 'renders correct template' do
       get '/users/120/posts'
       expect(response).to render_template(:index)
     end
 
-    it 'should include correct text' do
+    it 'includes correct text' do
       get '/users/120/posts'
       expect(response.body).to include('List of all posts by a user ')
     end
@@ -27,18 +27,18 @@ RSpec.describe 'Posts', type: :request do
       get '/users/:id/posts/:post_id'
       expect(response).to have_http_status(:ok)
     end
-    it 'should pass with status 200' do
-      get '/users/120/posts/20'
+    it 'passes with status 200' do
+      get '/users/100/posts/20'
       expect(response.status).to eql(200)
     end
 
-    it 'should render correct template' do
-      get '/users/120/posts/2'
+    it 'renders correct template' do
+      get '/users/100/posts/2'
       expect(response).to render_template(:show)
     end
 
-    it 'should include correct text' do
-      get '/users/120/posts/2'
+    it 'include correct text' do
+      get '/users/100/posts/2'
       expect(response.body).to include('List of post by given id')
     end
   end
