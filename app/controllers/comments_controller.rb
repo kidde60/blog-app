@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_post_path(current_user.id, params[:id])
     else
-      render :new
+      render :new, alert: 'Error: Comment not saved.'
     end
   end
 end
