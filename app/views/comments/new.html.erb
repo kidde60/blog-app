@@ -1,0 +1,11 @@
+<div class="createpost">
+<h1>New comment</h1>
+<div class="form-input">
+ <%= form_with model: @comments, url: comment_path do |form| %>
+  <%= form.text_field :text %>
+</div>
+<a class="post-btn">
+  <%= form.submit "Add Comment" %>
+  </a>
+<% end %>
+</div>
