@@ -11,5 +11,11 @@
         <%end%>
     <%end%>
     </div>
+  <% if @current_user %>
+    <a href="/users/<%= @user.id %>/posts/new">
+<button class="allposts-btn">
+        Create new post
+</button></a>
+<% end %>
     <button><%= link_to 'See all posts', user_posts_path(@user)%></button>
 </div>
