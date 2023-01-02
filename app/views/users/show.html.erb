@@ -1,15 +1,39 @@
-<div class="user-page">
-  <%= render "shared/details", user: @user %>
+<div class="users">
+        <div class="user-card">
+            <img class="user-img" src=<%= @user.photo %> alt=<%= @user.name %>>
+            <div class="user-card__content">
+                <h3 class="user-name"><%= @user.name %></h3>
+                <div class="postscount">
+                    <p>Number of posts: <%= @user.posts.count %></p>
+                </div>
+            </div>
+        </div>
     <div class="user-bio">
-     <strong class="bio">Bio: </strong> <br>
-     <p><%= @user.bio %></p>
+        <h4>Bio</h4>
+        <p><%= @user.bio %></p>
     </div>
-    <div class="user-posts">
-    <% @user.recent_posts.each do |post| %>
-        <%= link_to user_post_path(user_id:@user.id, id: post.id) do%>
-      <%= render "shared/posts_details", post: post %>
-        <%end%>
-    <%end%>
-    </div>
-    <button><%= link_to 'See all posts', user_posts_path(@user)%></button>
+        <% @user.recent_posts.each do |post| %>
+        <div class="user-post__item">
+            <div class="user-post__content">
+                <h4><%= post.title %></h4>
+                <p><%= post.text[0..150] %></p>
+                <div class="postscount">
+                    <span>Comments: <%= post.comments_counter %>,</span>
+                    <span>Likes: <%= post.likes_counter %></span>
+                </div>
+            </div>
+        <div>
+        <% end %>
 </div>
+
+<% if @current_user %>
+<a href="/users/<%= @user.id %>/posts/new">
+<button class="posts-btn">
+        Add new post
+</button></a>
+<% end %>
+
+<a href="/users/<%= @user.id %>/posts">
+<button class="posts-btn">
+        See all posts
+</button></a>

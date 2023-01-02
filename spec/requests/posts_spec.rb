@@ -2,43 +2,35 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET/index' do
-    it 'Check if response status is correct' do
-      get '/users/:id/posts'
-      expect(response).to have_http_status(:ok)
-    end
-    it 'passes with status 200' do
+    it 'should pass with status 200' do
       get '/users/120/posts'
       expect(response.status).to eql(200)
     end
 
-    it 'renders correct template' do
+    it 'should render correct template' do
       get '/users/120/posts'
       expect(response).to render_template(:index)
     end
 
-    it 'includes correct text' do
+    it 'should include correct text' do
       get '/users/120/posts'
-      expect(response.body).to include('List of all posts by a user ')
+      expect(response.body).to include('List of posts by given user')
     end
   end
 
   describe 'GET/show' do
-    it 'Check if response status is correct' do
-      get '/users/:id/posts/:post_id'
-      expect(response).to have_http_status(:ok)
-    end
-    it 'passes with status 200' do
-      get '/users/100/posts/20'
+    it 'should pass with status 200' do
+      get '/users/120/posts/20'
       expect(response.status).to eql(200)
     end
 
-    it 'renders correct template' do
-      get '/users/100/posts/2'
+    it 'should render correct template' do
+      get '/users/120/posts/20'
       expect(response).to render_template(:show)
     end
 
-    it 'include correct text' do
-      get '/users/100/posts/2'
+    it 'should include correct text' do
+      get '/users/120/posts/20'
       expect(response.body).to include('List of post by given id')
     end
   end

@@ -1,7 +1,14 @@
-<div class="list-users"> 
-<% @users.each do |user| %>
-     <%= link_to(user) do %> 
-    <%= render "shared/details", user: user %> 
-    <%end%> 
-    <%end%> 
-</div> 
+<h1>Blog App</h1>
+<div class="users">
+    <% @users.each do |user| %>
+        <div class="card">
+            <img class="user-img" src=<%= user.photo %> alt=<%= 'photo' %>>
+            <div class="card-content">
+                <a class="username" href="users/<%= user.id %>"><%= user.name %></a>
+                <div class="postscount">
+                    <p>Number of posts: <%= user.posts.count %></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
