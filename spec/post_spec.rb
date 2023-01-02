@@ -3,12 +3,12 @@ require 'rails_helper'
 describe Post, type: :model do
   context 'test posts' do
     before :each do
-      @user = User.create(name: 'william', photo: 'https://github.com/kidde60', bio: 'web developer')
-      @post = Post.create(author: @user, title: 'Title', text: 'My sample text')
+      @user = User.create(name: 'Jennie', photo: 'https://unsplash.com/photos/Th-i7Z1ufK8', bio: 'Artist')
+      @post = Post.create(author: @user, title: 'Cafe', text: 'My fav place')
     end
 
     it 'should not have an empty title' do
-      expect(@post.title).to eql 'Title'
+      expect(@post.title).to eql 'Cafe'
     end
 
     it 'should have 0 comments at default' do
@@ -25,9 +25,9 @@ describe Post, type: :model do
     end
 
     it 'should return number of recent comments (5 max)' do
-      @comment = Comment.create(post: @post, author: @user, text: 'Awesome!')
-      @comment = Comment.create(post: @post, author: @user, text: 'Awesome!')
-      @comment = Comment.create(post: @post, author: @user, text: 'Awesome!')
+      Comment.create(post: @post, author: @user, text: 'This is a test')
+      Comment.create(post: @post, author: @user, text: 'This is a test')
+      Comment.create(post: @post, author: @user, text: 'This is a test')
       expect(@post.recent_comments.length).to eq 3
     end
   end
