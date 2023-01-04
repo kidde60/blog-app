@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:author_id])
+     @user = User.find(params[:author_id])
+    @posts = Post.includes(:author, :comments).where(author: params[:user_id])
+    @posts = @user.posts.includes(:comments)
   end
 
   def new
@@ -10,6 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(author: current_user, title: params[:title], text: params[:text])
     @post.author = current_user
+   
     if @post.save
       redirect_to user_posts_path(id: @post.author_id)
     else
