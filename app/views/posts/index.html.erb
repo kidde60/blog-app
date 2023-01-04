@@ -1,7 +1,7 @@
 <div class="posts-container">
     <div class="user-card">
-            <img class="user-img" src=<%= @user.photo %> alt=<%= @user.name %>>
-            <div class="user-card__content">
+            <img class="user-img" src=<%= @user.photo %> alt=<%= 'photo' %>>
+            <div class="user-card_content">
                 <h3 class="user-name"><%= @user.name %></h3>
                 <div class="postscount">
                     <p>Number of posts: <%= @user.posts.count %></p>
@@ -10,10 +10,10 @@
         </div>
     <% @user.recent_posts.each do |post| %>
     <a href=<%= user_post_path(@user.id, post.id) %>>
-        <div class="user-post__item">
-            <div class="user-post__content">
+        <div class="user-post_item">
+            <div class="user-post_content">
                 <h4><%= post.title %></h4>
-                <p><%= post.text[0..150] %></p>
+                <p><%= post.text %></p>
                 <div class="postscount">
                     <span>Comments: <%= post.comments_counter %>,</span>
                     <span>Likes: <%= post.likes_counter %></span>
@@ -21,9 +21,9 @@
             </div>
         <div>
         </a>
-        <div class="user-comment__item">
+        <div class="user-comment">
                 <% post.recent_comments.each do |comment| %>
-                <div class="user-comment__content">
+                <div>
                             <b><%= comment.author.name %></b>
                             <span class="comment-date"><%= comment.created_at %></span>
                 </div>

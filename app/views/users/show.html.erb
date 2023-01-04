@@ -1,7 +1,7 @@
 <div class="users">
         <div class="user-card">
             <img class="user-img" src=<%= @user.photo %> alt=<%= @user.name %>>
-            <div class="user-card__content">
+            <div class="user-card_content">
                 <h3 class="user-name"><%= @user.name %></h3>
                 <div class="postscount">
                     <p>Number of posts: <%= @user.posts.count %></p>
@@ -12,7 +12,8 @@
         <h4>Bio</h4>
         <p><%= @user.bio %></p>
     </div>
-        <% @user.recent_posts.each do |post| %>
+         <% @user.recent_posts.each do |post| %>
+        <a id="post-<%=post.id%>" href=<%= user_post_path(@user.id, post.id) %>>
         <div class="user-post__item">
             <div class="user-post__content">
                 <h4><%= post.title %></h4>
@@ -23,6 +24,7 @@
                 </div>
             </div>
         <div>
+        </a>
         <% end %>
 </div>
 
